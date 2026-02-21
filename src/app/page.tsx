@@ -16,6 +16,10 @@ export default function Home() {
                     facilisis in dui a, porttitor molestie odio.
                 </p>
 
+                <p className="italic">
+                    Mention Doupi for people for allergies...
+                </p>
+
                 <div className="mt-8 flex gap-4">
                     <button className="btn-primary">Book Now</button>
                     <button className="btn-secondary">View Services</button>
@@ -30,16 +34,54 @@ export default function Home() {
                 />
             </section>
 
-            {/* About Section */}
-            <section className="bg-surface-2 px-6 py-20 text-center">
+            {/* Testimonials Section */}
+            <section className="bg-surface px-6 py-20 text-center">
                 <div className="mx-auto max-w-2xl">
                     <h2 className="text-2xl md:text-3xl font-semibold">
-                        A Calm, Clean Space
+                        Testimonials
                     </h2>
                     <p className="mt-4 text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed sit amet eros urna. Sed ac est nisi. Nullam mollis,
-                        orci vel tempor congue, neque mi.
+                        Hear from our clients about their experiences at
+                        Vee&apos;s Nail Studio.
+                    </p>
+
+                    <p className="italic">
+                        Testimonials will go here... (quotes from clients, etc.)
+                    </p>
+                </div>
+            </section>
+
+            {/* Policies Section */}
+            <section className="px-6 py-20 text-center">
+                <div className="mx-auto max-w-2xl">
+                    <h2 className="text-2xl md:text-3xl font-semibold">
+                        Policies
+                    </h2>
+                    <p className="mt-4 text-muted">
+                        Before booking please review our policies and pricing to
+                        ensure you have all the information you need to make the
+                        best choice for your nail care.
+                    </p>
+                    <p className="italic">
+                        Policies dropdown will go here... (cancellation, late
+                        arrivals, etc.)
+                    </p>
+                </div>
+            </section>
+
+            {/* Aftercare Section */}
+            <section className="bg-surface px-6 py-20 text-center">
+                <div className="mx-auto max-w-2xl">
+                    <h2 className="text-2xl md:text-3xl font-semibold">
+                        Aftercare Instructions
+                    </h2>
+                    <p className="mt-4 text-muted">
+                        Proper aftercare is essential for maintaining the health
+                        and beauty of your nails.
+                    </p>
+                    <p className="italic">
+                        Aftercare instructions will go here... (tips for nail
+                        care, avoiding damage, etc.)
                     </p>
                 </div>
             </section>
@@ -90,7 +132,9 @@ export default function Home() {
                 <h2 className="text-2xl md:text-3xl font-semibold">
                     Ready to Book Your Appointment?
                 </h2>
-
+                <p className="italic">
+                    Dropdown for policies section will go here...
+                </p>
                 <p className="mt-4 text-muted">
                     Choose your service, select your time, and secure your spot
                     in just a few clicks.
@@ -98,6 +142,26 @@ export default function Home() {
 
                 <div className="mt-8">
                     <button className="btn-primary">Book Appointment</button>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="bg-surface px-6 py-20">
+                <div className="mx-auto max-w-5xl text-center">
+                    <h2 className="text-2xl md:text-3xl font-semibold">
+                        Frequently Asked Questions (FAQs)
+                    </h2>
+
+                    <p className="mt-4 text-muted">
+                        Here are some common questions and answers to help you
+                        understand our services, policies, and what to expect
+                        when you visit Vee&apos;s Nail Studio.
+                    </p>
+
+                    <p className="italic">
+                        FAQ section will go here... (booking process, service
+                        details, etc.)
+                    </p>
                 </div>
             </section>
         </main>

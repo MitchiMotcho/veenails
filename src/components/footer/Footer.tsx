@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaInstagram, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Footer() {
     return (
@@ -19,7 +19,7 @@ export default function Footer() {
                         <div className="mt-5 flex items-center gap-4">
                             <a
                                 className="btn-link"
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/vee.nailsstudio"
                                 target="_blank"
                                 rel="noreferrer"
                                 aria-label="Instagram"
@@ -29,10 +29,12 @@ export default function Footer() {
 
                             <a
                                 className="btn-link"
-                                href="mailto:hello@veesnailstudio.ca"
-                                aria-label="Email"
+                                href="https://tiktok.com/@vee.nailstudio"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="TikTok"
                             >
-                                <FaEnvelope className="text-lg" />
+                                <FaTiktok className="text-lg" />
                             </a>
                         </div>
                     </div>

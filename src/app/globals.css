@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #fff7fb;
+    --foreground: #2a1b22;
+
+    --surface: #ffffff;
+    --surface-2: #f7e6f2;
+    --border: #efd3e4;
+
+    --muted: #6b4b5a;
+
+    --pink-500: #dc7d9e;
+    --pink-600: #a85574;
+    --pink-700: #8c435f;
+
+    --link: var(--pink-600);
+    --link-hover: var(--pink-700);
+
+    --button: var(--pink-500);
+    --button-hover: var(--pink-600);
+    --button-active: var(--pink-700);
+    --button-text: #ffffff;
+
+    --button-secondary: var(--surface-2);
+    --button-secondary-hover: #f2d7ea;
+    --button-secondary-text: #3a2430;
+
+    --ring: rgba(196, 106, 138, 0.45);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-light-pink: var(--pink-500);
+    --color-pink: var(--pink-600);
+    --color-dark-pink: var(--pink-700);
+
+    --color-surface: var(--surface);
+    --color-surface-2: var(--surface-2);
+    --color-border: var(--border);
+
+    --color-muted: var(--muted);
+
+    --color-link: var(--link);
+    --color-link-hover: var(--link-hover);
+
+    --color-button: var(--button);
+    --color-button-hover: var(--button-hover);
+    --color-button-active: var(--button-active);
+    --color-button-text: var(--button-text);
+
+    --color-button-secondary: var(--button-secondary);
+    --color-button-secondary-hover: var(--button-secondary-hover);
+    --color-button-secondary-text: var(--button-secondary-text);
+
+    --color-ring: var(--ring);
+
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base page */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover,
+a:hover {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+}
+
+/* Shared button base */
+@utility btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+    rounded-xl px-5 py-3 text-sm font-semibold
+    no-underline
+    bg-button text-button-text
+    transition-all duration-200 ease-out
+    shadow-sm shadow-black/5
+    focus-visible:outline-none
+    focus-visible:ring-2 focus-visible:ring-ring
+    focus-visible:ring-offset-2 focus-visible:ring-offset-background
+    disabled:pointer-events-none disabled:opacity-50;
+}
+
+@utility btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+    rounded-xl px-5 py-3 text-sm font-semibold
+    no-underline
+    bg-button-secondary text-button-secondary-text
+    border border-border
+    transition-all duration-200 ease-out
+    focus-visible:outline-none
+    focus-visible:ring-2 focus-visible:ring-ring
+    focus-visible:ring-offset-2 focus-visible:ring-offset-background
+    disabled:pointer-events-none disabled:opacity-50;
+}
+
+/* Link-style button base */
+@utility btn-link {
+    @apply inline-flex items-center gap-1
+    text-sm font-semibold
+    text-link
+    no-underline
+    transition-colors duration-200
+    focus-visible:outline-none
+    focus-visible:ring-2 focus-visible:ring-ring
+    focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+}
+
+a.btn-primary:hover,
+button.btn-primary:hover {
+    @apply bg-button-hover -translate-y-0.5 shadow-md;
+}
+a.btn-primary:active,
+button.btn-primary:active {
+    @apply bg-button-active translate-y-0 shadow-sm;
+}
+
+a.btn-secondary:hover,
+button.btn-secondary:hover {
+    @apply bg-button-secondary-hover -translate-y-0.5;
+}
+a.btn-secondary:active,
+button.btn-secondary:active {
+    @apply translate-y-0;
+}
+
+a.btn-link {
+    position: relative;
+}
+
+/* Animated underline */
+a.btn-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1.5px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease-out;
+    opacity: 0.9;
+}
+
+a.btn-link:hover {
+    @apply text-link-hover;
+}
+
+a.btn-link:hover::after {
+    transform: scaleX(1);
+}
+
+h1,
+h2 {
+    margin: 1.5rem 0 0.75rem;
+}
+h1,
+h2,
+h3 {
+    font-family:
+        var(--font-display), var(--font-sans), Arial, Helvetica, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--foreground);
+    font-weight: 600;
 }

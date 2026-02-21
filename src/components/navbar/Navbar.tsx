@@ -124,44 +124,60 @@ export default function Navbar() {
             {/* Drawer */}
             <aside
                 className={[
-                    "fixed right-0 top-0 z-50 h-dvh w-[82%] max-w-sm md:hidden",
-                    "border-l border-border bg-background",
-                    "transform transition-transform duration-250 ease-out",
-                    open ? "translate-x-0" : "translate-x-full",
+                    "fixed left-0 top-0 z-50 w-full md:hidden",
+                    "border-b-2 border-border bg-background/98 backdrop-blur",
+                    "transform transition-transform duration-300 ease-out",
+                    open ? "translate-y-0" : "-translate-y-full",
                 ].join(" ")}
                 aria-label="Mobile menu"
             >
-                <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-                    <p className="text-sm font-semibold">Menu</p>
-                    <Hamburger
-                        toggled={open}
-                        toggle={setOpen}
-                        size={22}
-                        rounded
-                        label="Close menu"
-                    />
-                </div>
-
-                <nav className="flex flex-col gap-5 px-6 py-6">
-                    {NAV_ITEMS.map((item) => (
-                        <NavLink
-                            key={item.href}
-                            href={item.href}
-                            label={item.label}
-                            onClick={close}
-                        />
-                    ))}
-
-                    <div className="pt-3">
+                <div className="mx-auto max-w-6xl px-6">
+                    <div className="flex items-center justify-between py-2 border-b-2 border-border">
                         <Link
-                            href="/booking"
-                            onClick={close}
-                            className="btn-primary w-full"
+                            href="/"
+                            className="flex flex-row items-center justify-center gap-x-2"
                         >
-                            Book Now
+                            <Image
+                                src="/logo.png"
+                                alt="Vee's Nail Studio Logo"
+                                width={30}
+                                height={30}
+                                className="rounded-full border-2 border-border"
+                            />
+                            <p className="text-base font-semibold">
+                                Vee's Nail Studio
+                            </p>
                         </Link>
+                        <Hamburger
+                            toggled={open}
+                            toggle={setOpen}
+                            size={22}
+                            rounded
+                            label="Close menu"
+                        />
                     </div>
-                </nav>
+
+                    <nav className="flex flex-col gap-5 py-6">
+                        {NAV_ITEMS.map((item) => (
+                            <NavLink
+                                key={item.href}
+                                href={item.href}
+                                label={item.label}
+                                onClick={close}
+                            />
+                        ))}
+
+                        <div className="pt-3">
+                            <Link
+                                href="/booking"
+                                onClick={close}
+                                className="btn-primary w-full"
+                            >
+                                Book Now
+                            </Link>
+                        </div>
+                    </nav>
+                </div>
             </aside>
         </header>
     );

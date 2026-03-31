@@ -92,7 +92,7 @@ export default function Footer() {
                         </div>
 
                         <div className="mt-5">
-                            <Link href="/booking" className="btn-secondary">
+                            <Link href="/booking" className="btn-primary">
                                 Book an Appointment
                             </Link>
                         </div>

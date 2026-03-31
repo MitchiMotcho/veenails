@@ -29,9 +29,9 @@ function NavLink({
             href={href}
             onClick={onClick}
             className={[
-                "text-sm font-semibold transition-colors",
+                "text-sm font-semibold transition-colors duration-200",
                 active
-                    ? "text-light-pink underline underline-offset-8"
+                    ? "text-link underline underline-offset-8 decoration-2"
                     : "text-muted hover:text-link-hover",
             ].join(" ")}
         >

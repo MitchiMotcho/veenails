@@ -5,18 +5,20 @@ export default function SectionBlock({
     description,
     background = "bg-surface-2",
     className = "",
+    id = "",
     children,
 }: {
     title: string;
     description?: string;
     background?: string;
     className?: string;
+    id?: string;
     children?: React.ReactNode;
 }) {
     const isPlain = background === "bg-background";
 
     return (
-        <section className={`bg-background ${className}`}>
+        <section id={id} className={`bg-background ${className}`}>
             <div className="mx-auto max-w-310 px-6">
                 {isPlain ? (
                     <div className="text-center">

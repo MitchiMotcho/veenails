@@ -1,9 +1,11 @@
+import ButtonLink from "@/components/ui/ButtonLink";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function HeroSection() {
+export default function HeroSection({ id = "" }: { id?: string }) {
+    const redirectURL = process.env.NEXT_PUBLIC_BOOKING_URL || "https://booking.veenailstudio.ca";
     return (
-        <section className="bg-background px-6 pt-12 md:pt-24 text-center">
+        <section id={id} className="bg-background px-6 pt-12 md:pt-24 text-center">
             <div className="mx-auto max-w-3xl">
 
                 <p className="text-sm font-medium text-muted">
@@ -25,15 +27,12 @@ export default function HeroSection() {
                 </p>
 
                 <div className="mt-8 flex flex-col mx-auto max-w-80 justify-center gap-4 sm:flex-row">
-                    <Link
-                        href="https://booking.yourdomain.ca"
-                        className="btn-primary"
-                    >
+                    <ButtonLink href={redirectURL} external>
                         Book Now
-                    </Link>
-                    <Link href="/pricing" className="btn-secondary">
+                    </ButtonLink>
+                    <ButtonLink href="/pricing" variant="secondary">
                         Services & Pricing
-                    </Link>
+                    </ButtonLink>
                 </div>
 
                 <div className="mt-10 flex justify-center">

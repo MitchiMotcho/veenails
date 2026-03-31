@@ -187,7 +187,8 @@ h2 {
 }
 h1,
 h2,
-h3 {
+h3,
+.font-header {
     font-family:
         var(--font-display), var(--font-sans), Arial, Helvetica, sans-serif;
 }

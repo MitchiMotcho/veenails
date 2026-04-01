@@ -12,7 +12,7 @@ export default function PoliciesSection({ id = "policies" }: { id?: string }) {
     return (
         <SectionBlock
             title="Booking Policies"
-            description="A few quick policies to help keep appointments smooth, comfortable, and fair for everyone."
+            description="By booking an appointment, you agree to our policies. Please review them before scheduling to ensure a smooth and enjoyable experience."
             background="bg-surface"
             id={id}
         >

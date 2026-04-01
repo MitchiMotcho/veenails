@@ -1,4 +1,5 @@
 import ButtonLink from "@/components/ui/ButtonLink";
+import PageHeader from "@/components/ui/PageHeader";
 import ScrollLink from "@/components/ui/ScrollLink";
 import Image from "next/image";
 
@@ -13,18 +14,11 @@ export default function HeroSection({ id = "" }: { id?: string }) {
             className="bg-background px-6 pt-12 text-center md:pt-24"
         >
             <div className="mx-auto max-w-3xl">
-                <p className="text-sm font-medium tracking-wide text-dark-green">
-                    Soft sets, detailed designs, and a cozy experience
-                </p>
-
-                <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-                    Vee&apos;s Nail Studio
-                </h1>
-
-                <p className="mt-6 text-base text-muted md:text-lg">
-                    Thoughtfully done nail sets in a warm, welcoming space, with
-                    a focus on detail, comfort, and designs that feel like you.
-                </p>
+                <PageHeader
+                    intro="Soft sets, detailed designs, and a cozy experience"
+                    title="Vee's Nail Studio"
+                    description="Thoughtfully done nail sets in a warm, welcoming space, with a focus on detail, comfort, and designs that feel like you."
+                />
 
                 <div className="mx-auto mt-6 max-w-2xl rounded-2xl border border-border/60 bg-surface p-4 text-left shadow-sm">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5 xl:gap-6">
@@ -52,7 +46,7 @@ export default function HeroSection({ id = "" }: { id?: string }) {
                             <p className="mt-1 text-sm leading-relaxed text-muted">
                                 View a Doupi gallery on{" "}
                                 <ScrollLink
-                                    href="/gallery#Doupi"
+                                    href="/gallery#doupi"
                                     className="text-link font-bold underline hover:text-link-hover"
                                 >
                                     our gallery page

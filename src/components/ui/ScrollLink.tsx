@@ -17,7 +17,7 @@ export default function ScrollLink({ href, children, className }: Props) {
         if (!el) return;
         const nav = document.querySelector("nav");
         const navHeight = nav?.clientHeight ?? 64;
-        const extraSpacing = 8; // small gap in px
+        const extraSpacing = 100; // small gap in px
         const top = el.getBoundingClientRect().top + window.scrollY - navHeight - extraSpacing;
         window.scrollTo({ top, behavior: "smooth" });
     };

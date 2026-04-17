@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Squash as Hamburger } from "hamburger-react";
+import ButtonLink from "../ui/ButtonLink";
 
 const NAV_ITEMS = [
     { href: "/", label: "Home" },
@@ -29,9 +30,9 @@ function NavLink({
             href={href}
             onClick={onClick}
             className={[
-                "text-sm font-semibold transition-colors",
+                "text-sm font-semibold transition-colors duration-200",
                 active
-                    ? "text-light-pink underline underline-offset-8"
+                    ? "text-link underline underline-offset-8 decoration-2"
                     : "text-muted hover:text-link-hover",
             ].join(" ")}
         >
@@ -52,6 +53,10 @@ export default function Navbar() {
             document.body.style.overflow = "";
         };
     }, [open]);
+
+    const redirectURL =
+        process.env.NEXT_PUBLIC_BOOKING_URL ||
+        "https://booking.veenailstudio.ca";
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur">
@@ -90,9 +95,9 @@ export default function Navbar() {
                         ))}
                     </nav>
 
-                    <Link href="/booking" className="btn-primary">
+                    <ButtonLink href={redirectURL} onClick={close} external>
                         Book Now
-                    </Link>
+                    </ButtonLink>
                 </div>
 
                 {/* Mobile hamburger */}
@@ -168,13 +173,13 @@ export default function Navbar() {
                         ))}
 
                         <div className="pt-3">
-                            <Link
-                                href="/booking"
+                            <ButtonLink
+                                href={redirectURL}
                                 onClick={close}
-                                className="btn-primary w-full"
+                                external
                             >
                                 Book Now
-                            </Link>
+                            </ButtonLink>
                         </div>
                     </nav>
                 </div>

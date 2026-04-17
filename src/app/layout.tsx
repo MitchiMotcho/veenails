@@ -53,6 +53,7 @@ export default function RootLayout({
         <html
             lang="en"
             className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`}
+            data-scroll-behavior="smooth"
             suppressHydrationWarning
         >
             <body className="min-h-dvh bg-background text-foreground antialiased">

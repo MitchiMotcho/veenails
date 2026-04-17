@@ -1,16 +1,38 @@
-export default function Gallery() {
+import GallerySection from "@/components/gallery/GallerySection";
+import FloatingSectionNav from "@/components/ui/FloatingSectionNav";
+import PageHeader from "@/components/ui/PageHeader";
+import { gallerySections } from "@/content/gallery/gallery";
+
+export default function GalleryPage() {
     return (
-        <main className="min-h-screen bg-background text-foreground">
-            <section className="flex flex-col items-center justify-center px-6 py-24 text-center">
-                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-                    Gallery
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground">
-                    - Featured Section <br/>
-                    - Retention Section <br />
-                    - Doupi Section
-                </p>
-            </section>
+        <main className="min-h-screen bg-background text-foreground py-16 space-y-16">
+            <FloatingSectionNav
+                items={gallerySections
+                    .filter(
+                        (section): section is typeof section & { id: string } =>
+                            Boolean(section.id),
+                    )
+                    .map((section) => ({
+                        id: section.id,
+                        label: section.title,
+                    }))}
+            />
+
+            <PageHeader
+                intro="Photos of our work and Doupi!"
+                title="Vee's Nail Studio Gallery"
+                description="Explore our gallery to see the stunning nail art and designs created by Vee, from classic manicures to intricate nail art. Don't forget to see Doupi at the bottom as well!"
+                redirectURL="/pricing"
+                redirectPage="Services & Pricing"
+            />
+
+            {gallerySections.map((section) => (
+                <GallerySection
+                    key={section.title}
+                    id={section.id}
+                    {...section}
+                />
+            ))}
         </main>
     );
 }

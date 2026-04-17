@@ -1,7 +1,19 @@
 import Link from "next/link";
 import { FaInstagram, FaTiktok, FaMapMarkerAlt } from "react-icons/fa";
+import ButtonLink from "../ui/ButtonLink";
 
 export default function Footer() {
+    const quickLinks = [
+        { name: "Pricing", href: "/pricing" },
+        { name: "Gallery", href: "/gallery" },
+        { name: "Booking", href: "/booking" },
+        { name: "Contact", href: "/contact" },
+    ];
+
+    const redirectURL =
+        process.env.NEXT_PUBLIC_BOOKING_URL ||
+        "https://booking.veenailstudio.ca";
+
     return (
         <footer className="border-t border-border bg-background">
             <div className="mx-auto max-w-6xl px-6 py-12">
@@ -43,38 +55,16 @@ export default function Footer() {
                     <div>
                         <p className="text-sm font-semibold">Quick Links</p>
                         <ul className="mt-3 space-y-2 text-sm grid sm:grid-cols-2">
-                            <li>
-                                <Link
-                                    className="text-muted transition-colors hover:text-link-hover"
-                                    href="/pricing"
-                                >
-                                    Pricing
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="text-muted transition-colors hover:text-link-hover"
-                                    href="/gallery"
-                                >
-                                    Gallery
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="text-muted transition-colors hover:text-link-hover"
-                                    href="/booking"
-                                >
-                                    Booking
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="text-muted transition-colors hover:text-link-hover"
-                                    href="/contact"
-                                >
-                                    Contact
-                                </Link>
-                            </li>
+                            {quickLinks.map((link) => (
+                                <li key={link.href}>
+                                    <Link
+                                        className="text-muted underline transition-colors hover:text-link-hover"
+                                        href={link.href}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -92,9 +82,9 @@ export default function Footer() {
                         </div>
 
                         <div className="mt-5">
-                            <Link href="/booking" className="btn-secondary">
+                            <ButtonLink href={redirectURL} external>
                                 Book an Appointment
-                            </Link>
+                            </ButtonLink>
                         </div>
                     </div>
                 </div>

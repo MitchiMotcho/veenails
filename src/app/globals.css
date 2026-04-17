@@ -1,48 +1,63 @@
 @import "tailwindcss";
 
 :root {
+    /* Base */
     --background: #fff7fb;
-    --foreground: #2a1b22;
+    --foreground: #251a20;
 
+    /* Surfaces */
     --surface: #ffffff;
-    --surface-2: #f7e6f2;
-    --border: #efd3e4;
+    --surface-2: #f9e3ed; /* soft pink */
+    --surface-3: #f2e0d2; /* light cream */
 
-    --muted: #6b4b5a;
+    /* Borders */
+    --border: #ead6df;
 
-    --pink-500: #dc7d9e;
-    --pink-600: #a85574;
-    --pink-700: #8c435f;
+    /* Text */
+    --muted: #6f5963;
 
-    --link: var(--pink-600);
-    --link-hover: var(--pink-700);
+    /* Brand */
+    --pink-light: #f2abc0;
+    --pink-main: #d881a2;
+    --pink-hover: #c27491;
+    --pink-active: #b05f7d;
 
-    --button: var(--pink-500);
-    --button-hover: var(--pink-600);
-    --button-active: var(--pink-700);
+    --green-light: #9dad71;
+    --green: #495706;
+
+    /* Links */
+    --link: var(--pink-main);
+    --link-hover: var(--pink-hover);
+
+    /* Buttons */
+    --button: var(--pink-main);
+    --button-hover: var(--pink-hover);
+    --button-active: var(--pink-active);
     --button-text: #ffffff;
 
     --button-secondary: var(--surface-2);
-    --button-secondary-hover: #f2d7ea;
-    --button-secondary-text: #3a2430;
-
-    --ring: rgba(196, 106, 138, 0.45);
+    --button-secondary-hover: #f2c8dc;
+    --button-secondary-text: var(--foreground);
 }
 
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
 
-    --color-light-pink: var(--pink-500);
-    --color-pink: var(--pink-600);
-    --color-dark-pink: var(--pink-700);
-
     --color-surface: var(--surface);
     --color-surface-2: var(--surface-2);
+    --color-surface-3: var(--surface-3);
+    --color-surface-4: var(--surface-4);
+
     --color-border: var(--border);
 
     --color-muted: var(--muted);
 
+    --color-light-pink: var(--pink-light);
+    --color-pink-main: var(--pink-main);
+    --color-dark-pink: var(--pink-active);
+    --color-light-green: var(--green-light);
+    --color-dark-green: var(--green);
     --color-link: var(--link);
     --color-link-hover: var(--link-hover);
 
@@ -55,13 +70,17 @@
     --color-button-secondary-hover: var(--button-secondary-hover);
     --color-button-secondary-text: var(--button-secondary-text);
 
-    --color-ring: var(--ring);
+    --color-ring: var(--pink-active);
 
     --font-sans: var(--font-sans);
     --font-mono: var(--font-mono);
 }
 
 /* Base page */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--background);
     color: var(--foreground);
@@ -168,7 +187,8 @@ h2 {
 }
 h1,
 h2,
-h3 {
+h3,
+.font-header {
     font-family:
         var(--font-display), var(--font-sans), Arial, Helvetica, sans-serif;
 }
@@ -178,6 +198,6 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--foreground);
+    color: var(--green);
     font-weight: 600;
 }

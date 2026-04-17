@@ -2,7 +2,7 @@ import Link from "next/link";
 import SectionBlock from "@/components/home/SectionBlock";
 import ScrollLink from "@/components/ui/ScrollLink";
 
-import { policyItems } from "@/content/home/policies";
+import { policyItems } from "@/content/policies/policies";
 import ButtonLink from "@/components/ui/ButtonLink";
 
 export default function PoliciesSection({ id = "policies" }: { id?: string }) {

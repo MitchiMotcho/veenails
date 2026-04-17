@@ -17,7 +17,7 @@ export default function Home() {
             <HeroSection id="hero" />
 
             {/* Policies */}
-            <PoliciesSection id="policies"/>
+            <PoliciesSection id="policies" />
 
             {/* Aftercare */}
             <AftercareSection />

@@ -4,10 +4,6 @@ import ScrollLink from "@/components/ui/ScrollLink";
 import Image from "next/image";
 
 export default function HeroSection({ id = "" }: { id?: string }) {
-    const redirectURL =
-        process.env.NEXT_PUBLIC_BOOKING_URL ||
-        "https://booking.veenailstudio.ca";
-
     return (
         <section
             id={id}
@@ -18,6 +14,8 @@ export default function HeroSection({ id = "" }: { id?: string }) {
                     intro="Soft sets, detailed designs, and a cozy experience"
                     title="Vee's Nail Studio"
                     description="Thoughtfully done nail sets in a warm, welcoming space, with a focus on detail, comfort, and designs that feel like you."
+                    redirectURL="/pricing"
+                    redirectPage="Services & Pricing"
                 />
 
                 <div className="mx-auto mt-6 max-w-2xl rounded-2xl border border-border/60 bg-surface p-4 text-left shadow-sm">
@@ -55,15 +53,6 @@ export default function HeroSection({ id = "" }: { id?: string }) {
                             </p>
                         </div>
                     </div>
-                </div>
-
-                <div className="mx-auto mt-8 flex max-w-80 flex-col justify-center gap-4 sm:flex-row">
-                    <ButtonLink href={redirectURL} external>
-                        Book Now
-                    </ButtonLink>
-                    <ButtonLink href="/pricing" variant="secondary">
-                        Services & Pricing
-                    </ButtonLink>
                 </div>
 
                 <div className="mt-10 flex justify-center">

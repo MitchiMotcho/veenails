@@ -4,9 +4,13 @@ import { useState } from "react";
 import { IoCheckmark } from "react-icons/io5";
 import SectionBlock from "@/components/home/SectionBlock";
 import ScrollLink from "@/components/ui/ScrollLink";
+import ButtonLink from "@/components/ui/ButtonLink";
 
 export default function BookingCTA({ id = "booking" }: { id?: string }) {
     const [reviewedPolicies, setReviewedPolicies] = useState(false);
+    const bookingURL =
+        process.env.NEXT_PUBLIC_BOOKING_URL ||
+        "https://booking.veenailstudio.ca";
 
     return (
         <SectionBlock
@@ -39,26 +43,34 @@ export default function BookingCTA({ id = "booking" }: { id?: string }) {
                         className="sr-only peer"
                     />
 
-                        <span className="h-5 w-5 flex items-center justify-center rounded-md border border-border bg-background transition-colors peer-checked:bg-button peer-checked:border-button peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-button/50">
-                            <IoCheckmark
-                                className={
-                                    reviewedPolicies
-                                        ? "w-4 h-4 text-white transform scale-100 opacity-100 transition-all duration-200 stroke-2"
-                                        : "w-4 h-4 text-white transform scale-75 opacity-0 transition-all duration-150"
-                                }
-                            />
-                        </span>
+                    <span className="h-5 w-5 flex items-center justify-center rounded-md border border-border bg-background transition-colors peer-checked:bg-button peer-checked:border-button peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-button/50">
+                        <IoCheckmark
+                            className={
+                                reviewedPolicies
+                                    ? "w-4 h-4 text-white transform scale-100 opacity-100 transition-all duration-200 stroke-2"
+                                    : "w-4 h-4 text-white transform scale-75 opacity-0 transition-all duration-150"
+                            }
+                        />
+                    </span>
 
-                    <span className="text-sm text-muted">
+                    <span className="text-sm text-muted text-left">
                         I have reviewed and agree to the booking policies.
                     </span>
                 </label>
             </div>
 
             <div className="mt-8">
-                <button className="btn-primary" disabled={!reviewedPolicies}>
+                <ButtonLink
+                    className="w-full sm:w-auto"
+                    disabled={!reviewedPolicies}
+                    href={bookingURL}
+                    external
+                >
                     Book Appointment
-                </button>
+                </ButtonLink>
+                <p className="mt-3 text-xs text-muted">
+                    Please review and agree to the policies before proceeding to book your appointment.
+                </p>
             </div>
         </SectionBlock>
     );

@@ -73,15 +73,17 @@ export default function FloatingSectionNav({
 
     return (
         <div
-            className={`fixed pointer-events-none right-0 top-1/2 z-40 -translate-y-1/2 transition-all duration-500 ease-out ${
+            className={`fixed right-0 top-1/2 z-40 -translate-y-1/2 transition-all duration-500 ease-out ${
                 showHandle
                     ? "translate-x-0 opacity-100"
-                    : "translate-x-6 opacity-0 pointer-events-none"
+                    : "translate-x-6 opacity-0"
             }`}
         >
             <div
+                aria-hidden={!showHandle}
                 className={[
-                    "flex pointer-events-auto w-56 items-stretch overflow-hidden rounded-l-2xl border-2 border-border/60 bg-surface shadow-lg shadow-pink-100/30 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    "flex w-56 items-stretch overflow-hidden rounded-l-2xl border-2 border-border/60 bg-surface shadow-lg shadow-pink-100/30 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    showHandle ? "pointer-events-auto" : "pointer-events-none",
                     isOpen
                         ? "translate-x-0"
                         : "translate-x-[calc(100%-2.25rem)]",
@@ -97,6 +99,7 @@ export default function FloatingSectionNav({
                             : "Expand section navigation"
                     }
                     className="flex w-7 shrink-0 items-center justify-center rounded-l-full border-r border-border/50 bg-surface text-muted transition-colors duration-300 hover:bg-surface-2 hover:text-foreground sm:w-9 sm:rounded-none"
+                    tabIndex={showHandle ? 0 : -1}
                 >
                     <span
                         aria-hidden="true"
@@ -126,6 +129,7 @@ export default function FloatingSectionNav({
                                             ? "bg-pink-main text-white shadow-sm shadow-pink-200/60"
                                             : "bg-pink-50/80 text-muted hover:bg-pink-100 hover:text-foreground",
                                     ].join(" ")}
+                                    tabIndex={showHandle ? 0 : -1}
                                 >
                                     {item.label}
                                 </button>
